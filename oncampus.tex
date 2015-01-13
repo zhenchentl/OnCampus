@@ -1,0 +1,265 @@
+% Template for ICME-2013 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+% 陈振更新：
+% xie2015mining这个参考文献删掉，还未发表。
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,epsfig}
+
+\pagestyle{empty}
+
+
+\begin{document}\sloppy
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+
+
+% Title.
+% ------
+\title{A Scheme Towards a Smart Campus}
+%
+% Single address.
+% ---------------
+\name{Author(s) Name(s)\thanks{Thanks to XYZ agency for funding.}}
+\address{School of Software, Dalian University of Technology, Dalian 116620, China \\
+f.xia@ieee.org}
+%
+% For example:
+% ------------
+%\address{School\\
+%	Department\\
+%	Address\\
+%   Email}
+%
+% Two addresses (uncomment and modify for two-address case).
+% ----------------------------------------------------------
+%\twoauthors
+%  {A. Author-one, B. Author-two\sthanks{Thanks to XYZ agency for funding.}}
+%	{School A-B\\
+%	Department A-B\\
+%	Address A-B}
+%  {C. Author-three, D. Author-four\sthanks{The fourth author performed the work
+%	while at ...}}
+%	{School C-D\\
+%	Department C-D\\
+%	Address C-D\\
+%   Email}
+%
+
+\maketitle
+
+
+%
+\begin{abstract}
+Recent years, researchers have put effort on the constructions of smart city. As a important element of city, university campus is gaining more attention about the topic of smart campus. In this paper, we put our effort on the requirements for smart campus service, Propose a scheme vision to construct smart campus. An prototype is designed and implemented based on the scheme, the communication mechanism is elaborated in detail. In the scheme, we propose a new phrase called "campus emotion" to evaluate the state of the students.
+\end{abstract}
+%
+\begin{keywords}
+Smart City, Smart Campus, Campus Emotion, Interests Mining
+\end{keywords}
+%
+\section{Introduction}
+\label{sec:intro}
+
+%The construction of smart campus under the background of smart city
+Information technology has brought tremendous change, from daily livelihood, public security, power, communication, water and other fields, to the way and environment we live. Comprised of pervasive networks, advanced electronics, various senors, urban is on the way of evolving to be smart city aiming to construct a city system in which working and living environment is clean and efficient, all the resources are better optimized, and the strategies are wisely made. Researchers have demonstrated their own contribution, mainly putting their attention on smart traffic system, smart medical system, smart food system to establish smart city. Recent years, some researchers have realized university campus, a special epitome of society, is a significant component element of city. Thus, the concept of "smart campus" is proposed.
+
+%development of mobile deveces and liked by college student
+As we all know, mobile devices perform to be indispensable powerful data communication devices with the skyrocketing development of advanced mobile technologies and the ubiquitous coverage of cellular network\cite{winkley2012verity}. They are representing an ideal assistant platform to improve the efficiency of campus life\cite{chen2012oncampus}, since they are portable, easily accessible and appear to be a part of the everyday life of millions of college students. Recent years, research has shown the potential of mobile phone telecommunication such as the studies from Ruth Rettie\cite{rettie2009mobile}. And mobile learning also works well with some applications such as Mobile Virtual Campus (MVC)\cite{tan2010collaborative} and T3G\cite{chu2010two}.Applications that work as reminders, no need to say, are pervasive at app store. These applications assist users’ life by providing much convenience through social network communication, mobile learning, and schedule reminders. Meanwhile, it is noticed that location based service also become a popular theme in the social network industry. And as a particular group of people, college students are always fascinated by these high technologies, especially by the smart phones. Studies have shown that the number of smart phones within college campus accessing the Internet increases at an overwhelming speed. Applications that focus on campus situations are becoming important as reflected in this growing popularity. And it is the highly developed technology and devices makes the mobile social networking and other campus context a important factor when considering smart campus.
+
+%We regard college campus as a domain after analysis and consideration of its characteristic
+College campus can be summarized to be a scene where not only does it provide good infrastructure and condition to conduct context-aware services, but also it is a well-organized area within which a substantial number of user spends majority of time and generates a huge number of information or needs that are directly related to context of campus, such as location, user profiles, etc. Smart campus is desired to be more accurate context aware and ubiquitous access to network, tremendous resources are optimized efficiently and predictions or decisions are made smartly based on revealing the objective principles. However, there is a huge gap between this wonderful vision and the current progress made on building "smart campus", attempts range from physical campus infrastructure like smart classroom to contrastly virtual intelligent services based on pervasive computing. However, most effort has been putted on the physical equipments or functional applications in which, although many campus contexts are taken into account, which is considered a so-called way to present smart campus. Paralleled development of either physical or virtual campus services is much less conductive to constructing smart campus than a effective interweaving. Thus, we innovatively propose a scheme supporting smart campus from applying theoretical algorithm, such as interests mining, recommendation technics and educational guiding, to campus environment to a proposed architecture utilizing the good foundations to make campus a friendly place to live.
+
+%needs and our solution
+College student, specifically speaking, they spend time on the communication with families, friends, and even strangers, to establish or enhance friendships [2]. But unfortunately, in most cases, students may have no way to access what they want or even won't realize the existing of their other interests. Interests mining based on the context aware, locations, user profiles and proximity, and other information can facilitate college students satisfying their needs and making the most of resources in school. Particularly, wise decision and prediction can be made for faculty if they have a perception of the mood trend of the students who if so can get more scientific and efficient guidance. In this paper, we propose a scheme towards smart campus, conducting interests mining, educational guidance on campus situations to summarize the law existing in the campus community. Besides, we design an architecture named "OnCampus" utilizing mobile devices to implements the demands we mentioned.
+
+The rest of this paper will be developed as follows. Section II introduces the state of art of the research of smart campus, as well as researches about interests mining. Section III presents our motivation and requirements for smart campus, including personalized service, scientific guidance and resources optimizing. And the following section IV is to discuss the scheme of we proposed towards constructing smart campus. With the knowledge of our scheme, section V design and implement a prototype for both client side on mobile phones and server side on PCs. Finally, section VI gives a conclusion about our work.
+
+\section{Related Work}
+
+Campus is not simply a place for college students to accommodate, but also a place where students cultivate their knowledge and broaden their horizons . Given the significance of campus life, much research has been conducted in the construction of smart campus.
+
+%\subsection{Smart Campus}
+
+On the way of constructing smart campus, more attentions are remained on the infrastructures and the related applications involving both learning and teaching as well as living guidance in order to promote personal experience.
+
+Yim et at. design and implement a smart campus guide\cite{yim2014design} that recognizes the structure in which a user is interested and displays useful information about the structure，it is a VOD(video on demand) system. Liu et al. think smart campus to be an inevitable trend in the development of digital campus construction\cite{liu2014research}, they expound the concepts of smart campus based on the cloud computing and internet of things, discuss the problems should be noticed after elaborating intelligent application platforms. A smart campus application prototype based on layered Semantic Data Access(SDA)\cite{boran2011smart} has been introduced by Boran et al. ,with which integrating heterogeneous data. Wei Zhou elaborates his exploration on smart campus in terms of the construction of security system structure, based on cloud computing, the security system structure is designed and described at six levels\cite{zhou2014exploration}. Based on BYOD(Bring Your Own Device)\cite{sangani2013wi}, a secure Wi-Fi Internet browsing architecture is proposed by Sangani et al. to protect the campus web-browsing network.
+
+%For example, CampusGenie [7], as an extension of GPS navigator with WiFi network, offers active assistance helping students or visitors in university. CaNPAs [8] is another guidance system which assists drivers and pedestrians in universities and offers users with parking information, communicating with users along the way to destinations through voice navigation directions. Mobile Virtual Campus (MVC) [5] is a collaborative mobile learning system for online mobile learners, utilizing the location awareness and other built-in sensory components in mobile devices. Campus guidance system (CGS) [9] provides the fingerprint position algorithm (FPA) using RSS  from cellular networks and location-based service (LBS) for user reference. The project from Nuray Gedik is to reveal critical issues in designing mobile learning and to unfold students’ perceptions about reasons for participation, satisfaction, implementation processes, and specific content representation types.
+
+Although practical in each individual area, these projects work in very limited ways, either drawing a map of the campus or presenting e-books. None of them present the colorful campus life as a versatile system to assist college students, offering efficiency and convenience.
+
+Researcher major in interests mining conduct their research mainly on topic model on web text, like blog or Microblog. Nearly little research focus on interests mining in campus environment. Kuang et al. build an exact model for user interests by users’ log and users’ learning condition from an e-learning system\cite{kuang2010user} so that can automatically identify the learner’s interests and recommend interest-related resources. Han et al. conduct their research on Web log mining and propose a data preprocessing method based on user characteristic of interests and show the superiority and recommended value of this new method\cite{han2014data}. Xie et al. mining user interests from personal photos by modeling image contents with a four-level hierarchical structure, after which users’ interests can be discovered by doing posterior inference\cite{xie2015mining}.Chen uses topic model to build up users’ interest model, with which they can provide resource recommendation for users in the system.\cite{huayue2012study}
+
+Although researchers is sparing no effort exploring the constructions of smart campus, of which the development seems to be still at the primary stage. Some researchers analyzed the characteristics and trend of smart campus, reminding the problems need to be paid attention in the process of constructing smart campus. The state of art of achievements seem to lie mainly in the construction of infrastructure and service application. Some other attempts on improving the security or efficiency of campus life via cloud computing and internet of things. These efforts benefit the users from a substantial but relatively restricted way like navigation service. Our work means to contribute to establishing smart campus, proposed a efficient scheme composed of interests mining, resources optimizing and scientific guiding in which we propose a new concept, campus emotion, to offer a better personal experience of campus life for college students.
+
+%Although researchers have explored the areas of mobile learning, message delivery, communication and other campus activities, a well-integrated assistant is still missing within the designs which attempt to promote the convenience of college life.  The key innovative character of this work is to connect campus situations with mobile devices to provide versatile campus architecture, with tempt to substantiate the friendly and convenient user experience.  This work is not to improve college students’ grade, nor to earn the most money in a flea market, but to offer architecture of a better personal experience of campus life for college students, employing innovatively energy-saving communication mechanism and efficient location service.
+
+%Location awareness technologies are not only popular in research field, but also find its place in commercial industries with mobile applications. Currently, a few projects related to campus are available in academic or industry areas of location based service. T3G [6], a location-aware mobile learning system provides personalized learning guidance. The application proposed by Aiyuan Guo is used for interactive mobile learning with image recognition technology and location activated learning [10]. GeoLife2.0, a GPS-data-driven social networking service system, with which people can share life experiences and connect to each other with their location histories [12]. Kjasrgaard and M.B.  survey how different phone features and types of LBSs consume power and discusses related design considerations [13]. And a model on location-based service as infomediary [14] is proposed to study how LBS as infomediary changes the way people using information for decision making and how it differs from previous internet infomediary. Most of these researches have been well explored, focusing on areas of energy efficiency or surveying changing tendency with location awareness.
+
+\section{ Motivations and Requirements}
+
+We aim to serve college students a versatile and talented campus experience, meanwhile giving a practical hand on campus life. We survey students about their daily life to find out students' requirements. Actually, the requirements of university students are diverse and cover their study, living and entertainment, as partly shown in Fig. 1. And what we are going to do is to provide a feasible scheme for satisfying their requirements, thus facilitating the contribution of smart campus which means an efficient and convenient college life.
+
+The following scenario illustrates the requirements to be satisfied towards smart campus:
+
+With great passion and curiosity, Bob entered the university dreaming a colourful college life. In campus environment, students, researchers and many other entities performed various activities. Facing the mass information of the multifarious social activities displayed, he felt at sea because he didn't know what he was really interested in. Under the urge of his great passion, he chosen some social activities and clubs, he left and proven to be not accord with his interest after a period of time, because of the participation of the students surrounding him. The same embarrassment occurred when he chosen his profession one year later, but this time he could NOT leave. No longer did he have the passion or desire to try new things. He found it really difficult to conduct his exploration on his research without a cooperator.
+
+One day, he took part in a demonstration against the school institution because of the invitation and complainants which he took for granted from his roommate who had decided to demonstrate for the same reason. When he graduated, he had to throw away some article for daily use or books which was useful and helpful for other students.
+
+Bob's experience is the epitome of college experience of most university student currently. We can submit the requirements when considering constructing smart campus:
+
+1) Personalized Service
+
+It will be wiser and more beneficial for smart campus to provide information and service depending on the users' interest and profile. Otherwise the information explosion may dispel the enthusiasm of campus actors including students and teachers. Proper recommendation based on interests mining in campus environment, which will be discuss in next section, is a very good solution we proposed to offer personalized service.
+
+2) Scientific Guidance
+
+The community of college students, as a particular group of people, are mostly comprised of enthusiastic youth. Though they are well educated, it is the long time education in school makes them lack of experience or well judgement. Meanwhile, they are eager to make contribution to family and society with great passion. All of these characteristics lead them easy to be cat's paw. In the next section, we will introduce our vision of conduct scientific guidance based on predicting the community's behavior and emotion. We also propose the phrase "campus emotion" vividly in our scheme.
+
+3) Resources Optimizing
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The concept of resource in smart campus is not restricted in entity resources. Moreover, the information, context, event and even users themselves, can be particular resource which should be optimized. We are verifying a recommendation algorithm utilizing friendship of the user, which we regard as a solution to resources optimizing.
+
+\section{Proposed Scheme}
+
+%Assumption
+In our work, we make following 2 assumptions: 1) Pervasive access to network: we assume that every user such as students, faculties is equipped with a personal device(PC, smart mobile device, PDA etc). In smart campus systems, devices owned by users and the infrastructure form the condition that in campus situation\cite{khabou2014threshold}, users maintain a constant connection with each other, they are benefitted from a pervasive access to network, such as social network, learning network etc. 2) Precise context aware: it is supposed that the smart campus system has the powerful capability of context aware and pervasive computing\cite{khan2007future}. Besides the users' profile, the environment users involved such as building, location will be precisely obtained by advanced context extraction, identification and integration for smart campus.
+
+The scheme we proposed is composed of interests mining, scientific guidance and resources optimizing based on the upper assumption:
+
+As mentioned before, we put interests mining forward into smart campus to offer personalized service from a unique perspective. Different from the state of art interests mining mainly on semantic analysis from web or web behavior. We take campus context into consideration, from information of location, time, frequency, track and accompany, to infer the users' interests or needs. Then an customized recommendation strategy will filter the explosive information or resources to provide personalized service. For example, if a user appears in library frequently, always reading magazines about astronomy. Users with the similar interest may be recommended. This can be an effective way to find potential friends or cooperators. From another perspective, it is also a example of optimizing the resources in campus environment.
+
+To conduct scientific guidance to students, smart campus should offer faculty the conditions of the students. Based on the analysis of most students context, combined with the technology of public opinions analysis. The prediction of the community behavior and emotion can be conducted. we pick up a new phrase called "campus emotion" to evaluate the state of most students. If the campus emotion is healthy or normal, it represents most students are in a positive mood, but if it presents sick, it means that most students are in negative mood. For example, we can infer the impactive of some students via the technology of public opinions analysis. A customized guidance scheme can be formulated by supervisor.
+
+As we say, we pay attention to optimizing resources from various aspects. Besides mining potential resources to users, we are trying new recommendation algorithm to satisfy the needs of users. Recommendations cross different domain can be made under the consideration of friendship, this work is under tested during which seem to have a better performance than traditional algorithm.
+
+We, towards smart campus, propose a scheme composed of interests mining, scientific guidance and resources optimizing corresponding to the requirement mentioned before. Based on the Assumptions, the scheme is a vision on the constructing smart campus. Moreover, we put forward some feasible attempts, some of which is under verifying to be efficient. Based on the scheme, we design and implement a prototype named "OnCampus", which will be elaborated in detail in the next section.
+%-------------------------------------------------------------------------end------------------------------------------------------------------------------------%
+
+\section{Prototype Implementation}
+The OnCampus system aims to serve college students a versatile and talented assistant system. We provide an integrated and versatile platform for these daily routines as partly shown in Fig. \ref{Fig1:overview}. OnCampus hopes to make contribution to efficient and convenient college life.
+
+\begin{figure}[htb]
+\centering
+\includegraphics [width=3.5in]{Fig1.pdf}
+\caption{Overview of OnCampus}
+\label{Fig1:overview}
+\end{figure}
+
+This proposed architecture enables the OnCampus to work as a practically versatile campus assistant, archiving real-time messaging and data transmission. Fig. \ref{Fig2:architecture} shows our system’s architecture. More than simple clients and servers, this architecture tempts to propose location-based interaction as well as rational communication mechanism. Servers appear a two-tier structure, providing service and storing information. The first tier server is a message sending server, storing the information uploaded by mobile clients and transferring requested data to clients’ functional modules. And the second tier is a location searching server which merely collects location information and acquires clients’ location data by interacting with location service module of clients. Clients include the interface of our OnCampus assistant which interacts with users. A client makes of three modules covering important college activities: circle communication, local trading and campus forum. With the introduction of location based service (LBS), OnCampus is favorable for students to establish and enhance friendships, knowledge exchange and affective interaction, buy and sell used goods in a campus flea market.
+
+\begin{figure}[htb]
+\centering
+\includegraphics [width=3.5in]{Fig2.pdf}
+\caption{Architecture of OnCampus}
+\label{Fig2:architecture}
+\end{figure}
+
+\subsection{Communication Mechanism}
+In the OnCampus architecture, clients communicate with message sending servers on service data and exchange location information with location search servers. This communication via XMPP protocol is quite frequent in order to archive real-time service and data refresh. Data response right coming after each refresh is not adequate concerning energy consumption and network flow. Thus practical communication mechanism is proposed to stipulate data transportation process between servers and clients. This section will further illustrate the structure of server side and discuss the communication process in detail.
+
+\begin{figure}[htb]
+\centering
+\includegraphics [width=3.5in]{Fig3.pdf}
+\caption{Communication process between client and two-tier servers}
+\label{Fig3:communication}
+\end{figure}
+
+To achieve complicated location service at an energy-saving and efficient way, the OnCampus imposes two-tier server structure, LM2C (Location Search Server and Message Sending Server to Client), as shown in Fig. \ref{Fig3:communication}. And this two-tier structure involves message sending server (MSS) and location search server (LSS). Server side generally is responsible to collect data, classify and group the information automatically, and send messages according to various locations. And separately LSS is the server which manages physical area information and identifies related MSS, but MSS corresponds to store information and broadcast instant messages. Geological partitions are set by LSS, such as Teaching Building 1, Teaching Building 2 and Stadium M, and each physical area ID and its serving scope are documented as attributes of serving areas. With the database of serving areas, it is easy to check out that a certain physical location is assigned to a particular serving area, relating serving areas to a specified MSS. An MSS is in charge of several areas, and maintains a dynamical user list according to the users’ locations. MSSs accomplish the task to broadcast location-based instant messages, treating each physical area specifically.
+
+On the basis of LM2C of server side, OnCampus architecture regulates the process of data transfer between servers and clients to support system service. The communication process of location-based instant messaging between clients and two-tier servers can be illustrated as Fig. 3. When a client connects with LSS, it submits location information to LSS. LSS then will feedback a set of data, including surrounding area attributes, identifiers of MSSs as well as the corresponding relations of connection permission. After receiving the data, client needs to check out which MSS it belongs to, and then client waits for permission from MSS.  MSS adds that client to broadcast list and deliver permission information to client. A message will only be pushed to the clients who are marked in the user list of specified MSS. When this client ranges out of the area of former MSS, the connection between client and former MSS will be dismissed and connection request will be asked to another MSS without communicates with LSS.
+
+This two-tier LM2C architecture is designed to realize location-based instant message push, as well as energy efficiency. As mentioned above, client will receive a set of areas but not one attribute related to its exact location. This is designed for irredundant connection to LSS when location changes, clients decide the next MSS according to given datasets. Thus, an efficient way is implemented on the OnCampus system to use resource and bandwidth for servers. Besides, OnCampus supports that clients can passively receive messages rather than initiatively obtain messages, reducing energy consumption for clients
+
+\subsection{OnCampus at a Glance}
+OnCampus can be a talented platform for college students rather than just a practical tool on specific area. The prototype system focuses on five important campus situations, including circle communication, local trading and campus forum. This prototype OnCampus is implemented on the android platform for the clients, and the server component is implemented in Java on either Windows OS or Linux OS.
+
+\begin{figure}[htb]
+\centering
+\includegraphics [width=3.5in]{Fig4.pdf}
+\caption{The prototype implementation of OnCampus }
+\end{figure}
+
+The "Group" module provides functions of social network with campus which is of great popularity among college student and meets the need of students’ social communication. Circles with various topics can be built up for students to communicate with the users who have similar interest. This helps students to make friends, improve their perception, and broaden their horizons. Personal friends can be added like some instant message systems, and status delivery, share, retweet among circles are supported by myCircle as well. For example, a user delivery a status that he/she is happy today, everyone within his/her circles will be able to view this, and his/her friends are the ones who have privilege to reply, share, or forward this status.
+
+The "Buy \& Sell" module plays a practical role in campus life for students to exchange their goods. This module is designed to solve the problem of resource waste that students have to throw away their article for daily use or books which are useful and helpful for other students. With "Buy \& Sell", students can release the information about what are not among their necessities and are willing to sell to others. Customers thus will be able to find their needs and complete transactions with the information shown in this module. Users have the rights to view product lists, search certain products, release products offered for sale, and manage his/her on sale product list. Product lists are displayed according to various types of the products, so students can look over a certain type of products with an easy slide on type tabs. Usually the products in these lists will be set as for sale, whereas the product that has been sold can be either marked as fact or deleted from lists as its owner orders.
+
+The "Forum" module is a practical implementation for knowledge sharing, affective interaction and Q \& A. This module is designed to provide a platform for students to share their knowledge, release some news, poured forth their feelings and ask for help. Any register members of OnCampus can read and reply the posts. The owner of the posts can delete, edit, or share his/her posts. They have full power to manage it. Everyone here enjoy full freedom of speech.
+
+Convenience is pursued in university in many scenarios, and OnCampus can be an option at these circumstances. For example, Jack is interested in skiing sport very much and wants to find students who have similar interests. One solution is to look for circles with such topics in myCircle module in OnCampus, where holds expected students. And if no such circles can be found, Jack can build up a circle with skiing topic to attract students. Jack will find good friends who have the same hobbies with him in this circle. Another case is that with a new computer keyboard, students would rather prefer to sell the old and unbroken one on myFleaMarket to the student who needs it, in an economical and environmental friendly way.
+
+OnCampus share no efforts on convenience and efficiency for college students. And practicability of this work can be demonstrated by its wide range of helpfulness for campus situations.
+
+\section{Conclusion}
+
+In this paper, we realize the inevitable trend of smart campus. A feasible scheme composed of interests mining, scientific guidance and resources optimizing is proposed towards the construction of smart campus after analyzing the requirements to be satisfied. Beyond paralleled development on theory or entity, we design and implement a prototype proven to be efficient based on the proposed scheme.
+
+
+% Below is an example of how to insert images. Delete the ``\vspace'' line,
+% uncomment the preceding line ``\centerline...'' and replace ``imageX.ps''
+% with a suitable PostScript file name.
+% -------------------------------------------------------------------------
+%
+
+
+%\begin{figure}[t]
+%\begin{minipage}[b]{1.0\linewidth}
+%  \centering
+%% \centerline{\epsfig{figure=image1.ps,width=8.5cm}}
+%  \vspace{1.5cm}
+%  \centerline{(a) Result 1}\medskip
+%\end{minipage}
+%%
+%\begin{minipage}[b]{.48\linewidth}
+%  \centering
+%% \centerline{\epsfig{figure=image3.ps,width=4.0cm}}
+%  \vspace{1.5cm}
+%  \centerline{(b) Results 2}\medskip
+%\end{minipage}
+%\hfill
+%\begin{minipage}[b]{0.48\linewidth}
+%  \centering
+%% \centerline{\epsfig{figure=image4.ps,width=4.0cm}}
+%  \vspace{1.5cm}
+%  \centerline{(c) Result 3}\medskip
+%\end{minipage}
+%%
+%\caption{Example of placing a figure with experimental results.}
+%\label{fig:res}
+%\end{figure}
+%
+%\begin{eqnarray}
+%y &=& ax^2+bx+c \nonumber \\
+%~ &=& (x+p)(x+q)
+%\end{eqnarray}
+%shows an example of an equation layout.
+%
+%\begin{table}[t]
+%\begin{center}
+%\caption{Table caption} \label{tab:cap}
+%\begin{tabular}{|c|c|c|}
+%  \hline
+%  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+%  Column One & Column Two & Column Three
+%  \\
+%  \hline
+%  Cell 1 & Cell 2 & Cell 3 \\
+%  Cell 4 & Cell 5 & Cell 6 \\
+%  \hline
+%\end{tabular}
+%\end{center}
+%\end{table}
+
+% References
+% -------------------------------------------------------------------------
+\bibliographystyle{IEEEbib}
+\bibliography{OnCampus}
+
+\end{document}
