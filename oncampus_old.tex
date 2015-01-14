@@ -1,91 +1,70 @@
-\documentclass[conference]{IEEEtran}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{enumerate}
-\usepackage{multirow}
-\usepackage{epstopdf}
-\usepackage{array}
-\usepackage{CJK}
-\usepackage{float}
-\usepackage{subfigure}
-\usepackage{algorithm}
-\usepackage{algorithmicx}
-\newcommand{\algorithmicbreak}{\textbf{break}}
-\newcommand{\BREAK}{\State \algorithmicbreak}
-\usepackage{algpseudocode}
-% correct bad hyphenation here
-\hyphenation{op-tical net-works semi-conduc-tor}
+% Template for ICME-2013 paper; to be used with:
+%          spconf.sty  - ICASSP/ICIP LaTeX style file, and
+%          IEEEbib.bst - IEEE bibliography style file.
+% --------------------------------------------------------------------------
+% 陈振更新：
+% xie2015mining这个参考文献删掉，还未发表。
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,epsfig}
+
+\pagestyle{empty}
 
 
-\begin{document}
-%
-% paper title
-% can use linebreaks \\ within to get better formatting as desired
+\begin{document}\sloppy
+
+% Example definitions.
+% --------------------
+\def\x{{\mathbf x}}
+\def\L{{\cal L}}
+
+
+% Title.
+% ------
 \title{A Scheme Towards a Smart Campus}
-
-% author names and affiliations
-% use a multiple column layout for up to three different
-% affiliations
-\author{\IEEEauthorblockN{Michael Shell}
-\IEEEauthorblockA{School of Electrical and\\Computer Engineering\\
-Georgia Institute of Technology\\
-Atlanta, Georgia 30332--0250\\
-Email: http://www.michaelshell.org/contact.html}
-\and
-\IEEEauthorblockN{Homer Simpson}
-\IEEEauthorblockA{Twentieth Century Fox\\
-Springfield, USA\\
-Email: homer@thesimpsons.com}
-\and
-\IEEEauthorblockN{James Kirk\\ and Montgomery Scott}
-\IEEEauthorblockA{Starfleet Academy\\
-San Francisco, California 96678-2391\\
-Telephone: (800) 555--1212\\
-Fax: (888) 555--1212}}
-
-% conference papers do not typically use \thanks and this command
-% is locked out in conference mode. If really needed, such as for
-% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
-% after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
 %
-%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-%Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3},
-%Montgomery Scott\IEEEauthorrefmark{3} and
-%Eldon Tyrell\IEEEauthorrefmark{4}}
-%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-%Georgia Institute of Technology,
-%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212, Fax: (888) 555--1212}
-%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+% Single address.
+% ---------------
+\name{Author(s) Name(s)\thanks{Thanks to XYZ agency for funding.}}
+\address{School of Software, Dalian University of Technology, Dalian 116620, China \\
+f.xia@ieee.org}
+%
+% For example:
+% ------------
+%\address{School\\
+%	Department\\
+%	Address\\
+%   Email}
+%
+% Two addresses (uncomment and modify for two-address case).
+% ----------------------------------------------------------
+%\twoauthors
+%  {A. Author-one, B. Author-two\sthanks{Thanks to XYZ agency for funding.}}
+%	{School A-B\\
+%	Department A-B\\
+%	Address A-B}
+%  {C. Author-three, D. Author-four\sthanks{The fourth author performed the work
+%	while at ...}}
+%	{School C-D\\
+%	Department C-D\\
+%	Address C-D\\
+%   Email}
+%
 
-% make the title area
 \maketitle
 
 
-\begin{abstract}
-Recent years, there are increasing number of researchers working on the constructions of smart city. As a significant component element of smart city, college campus is gaining more attention with the concept of "Smart Campus" proposed. How to construct smart campus become a topical issue. In this work, we focus on three topics around smart campus: students interests mining, educational guiding and college resource optimizing. We innovatively propose a scheme supporting these three topics aiming to assist creating smart campus. A prototype called OnCampus is designed and implemented based on the scheme. The aforesaid three requirements of smart campus can be well contented by OnCampus.
-\end{abstract}
-
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
 %
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
-\IEEEpeerreviewmaketitle
-
-
-
+\begin{abstract}
+  Recent years, there are increasing number of researchers working on the constructions of smart city. As a significant component element of smart city, college campus is gaining more attention with the concept of "Smart Campus" proposed. How to construct smart campus become a topical issue. In this work, we focus on three topics around smart campus: students interests mining, educational guiding and college resource optimizing. We innovatively propose a scheme supporting these three topics aiming to assist creating smart campus. A prototype called OnCampus is designed and implemented based on the scheme. The aforesaid three requirements of smart campus can be well contented by OnCampus.
+\end{abstract}
+%
+\begin{keywords}
+Smart city, Smart campus, Interests Mining, Educational guiding, College resource optimizing, Campus emotion.
+\end{keywords}
+%
 \section{Introduction}
+\label{sec:intro}
 
 %The construction of smart campus under the background of smart city
 Information technology has brought tremendous changes to our lifestyle and living environment, which reflecting in daily livelihood,  communication, public security, energy, water resource etc. Comprised with pervasive networks, advanced electronics, various sensors, urban is on the way of evolving to be smart city. Smart city is defined as "multiple sectors cooperating to achieve sustainable outcomes through the analysis of contextual real-time information shared among sector-specific information and operational technology systems"~\cite{szabo2013framework}. Many researches contribute to smart traffic system, smart medical system, smart food system to support smart city. As a special epitome of society, college campus is a significant component element of city. Recent years, the concept of "smart campus" is proposed.
@@ -204,18 +183,64 @@ Convenience is pursued in university in many scenarios, and OnCampus can be an o
 In this paper, we realize the inevitable trend of smart campus. A feasible scheme composed of interests mining, scientific guidance and resources optimizing is proposed towards the construction of smart campus after analyzing the requirements to be satisfied. Beyond paralleled development on theory or entity, we design and implement a prototype proven to be efficient based on the proposed scheme.
 
 
+% Below is an example of how to insert images. Delete the ``\vspace'' line,
+% uncomment the preceding line ``\centerline...'' and replace ``imageX.ps''
+% with a suitable PostScript file name.
+% -------------------------------------------------------------------------
+%
 
-% use section* for acknowledgement
-\section*{Acknowledgment}
 
+%\begin{figure}[t]
+%\begin{minipage}[b]{1.0\linewidth}
+%  \centering
+%% \centerline{\epsfig{figure=image1.ps,width=8.5cm}}
+%  \vspace{1.5cm}
+%  \centerline{(a) Result 1}\medskip
+%\end{minipage}
+%%
+%\begin{minipage}[b]{.48\linewidth}
+%  \centering
+%% \centerline{\epsfig{figure=image3.ps,width=4.0cm}}
+%  \vspace{1.5cm}
+%  \centerline{(b) Results 2}\medskip
+%\end{minipage}
+%\hfill
+%\begin{minipage}[b]{0.48\linewidth}
+%  \centering
+%% \centerline{\epsfig{figure=image4.ps,width=4.0cm}}
+%  \vspace{1.5cm}
+%  \centerline{(c) Result 3}\medskip
+%\end{minipage}
+%%
+%\caption{Example of placing a figure with experimental results.}
+%\label{fig:res}
+%\end{figure}
+%
+%\begin{eqnarray}
+%y &=& ax^2+bx+c \nonumber \\
+%~ &=& (x+p)(x+q)
+%\end{eqnarray}
+%shows an example of an equation layout.
+%
+%\begin{table}[t]
+%\begin{center}
+%\caption{Table caption} \label{tab:cap}
+%\begin{tabular}{|c|c|c|}
+%  \hline
+%  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+%  Column One & Column Two & Column Three
+%  \\
+%  \hline
+%  Cell 1 & Cell 2 & Cell 3 \\
+%  Cell 4 & Cell 5 & Cell 6 \\
+%  \hline
+%\end{tabular}
+%\end{center}
+%\end{table}
 
-The authors would like to thank...
-
-
-\bibliographystyle{IEEEtran}
+% References
+% -------------------------------------------------------------------------
+\bibliographystyle{IEEEbib}
 \bibliography{OnCampus}
 
-% that's all folks
 \end{document}
-
-
