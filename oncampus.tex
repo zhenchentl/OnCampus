@@ -20,13 +20,13 @@
 
 \begin{document}
 
-\title{OnCampus: A Scheme Towards Smart Campus}
+\title{OnCampus: A Mobile Platform Towards Smart Campus}
 
 
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-\author{\IEEEauthorblockN{Zhen Chen, Jialiang Kang}
+\author{\IEEEauthorblockN{Zhen Chen, Qiuyuan Yang, Jialiang Kang, Haifeng Liu, Zhuo Yang, Feng Xia}
 \IEEEauthorblockA{School of Software, Dalian University of Technology, Dalian 116620, China\\
 f.xia@ieee.org}}
 
@@ -57,7 +57,7 @@ f.xia@ieee.org}}
 
 
 \begin{abstract}
-With the development of information technology, an increasing number of researchers and engineers begin to work on constructing smart city. As an important component of smart city construction, college campus has also been paid much attention. How to construct smart campus becomes a topical issue. In this work, we propose a scheme to assist building a smarter and more friendly campus. We focus on three aspects towards smart campus: discovering social circles based on interests mining, providing educational guidance by emotion analysis on an information posting platform, and developing a secondary trading platform aiming at campus resources allocation optimization. Based on the three aspects, we implement a prototype called OnCampus as the first step of smart campus construction, which has been practiced in Dalian University of Technology. The aforesaid three purposes of smart campus can be well achieved by OnCampus.
+An increasing number of researchers and practitioners are working on constructing smart cities. As an important component of smart city construction, college campus has also been paid much attention. How to construct smart campus becomes a topical issue. In this work, we propose a scheme to assist building a smarter and more friendly campus. We focus on three aspects towards smart campus, i.e. discovering social circles based on interests mining, providing educational guidance by emotion analysis on an information posting platform, and developing a secondary trading platform aiming at campus resources allocation optimization. For these purposes, we design and implement a mobile platform called OnCampus as the first step of smart campus construction, which has been put into use in a campus of Dalian University of Technology. The aforesaid three purposes of smart campus can be well achieved by OnCampus.
 \end{abstract}
 
 % For peer review papers, you can put extra information on the cover
@@ -84,9 +84,9 @@ As far as we know, mobile devices perform to be an ideal assistant platform to i
 College campus can be summarized to be a scene: a well-organized area containing high quality infrastructure, full of students' personal information and education resources, being students' long-time living place. Under such conditions, smart campus is desired to be like this: 1) More accurate context awareness and ubiquitous access to network. 2) Resources are allocated efficiently. 3) Decisions are made smartly based on revealing the objective principles. 4) Students can easily establish or enhance friendships based on intersecting circles. As well as students' freedom of speech can be protected. However, there is a huge gap between this wonderful vision and the current progress on building smart campus. There have been much attempts towards smart campus that focus on physical campus infrastructure and virtual intelligent services. Although many campus contexts are taken into account, most work concentrate on physical equipments or functional applications. In our opinion, paralleled development of either physical or virtual campus services is no better than an effective interweaving to constructing smart campus. Thus, we innovatively propose a scheme supporting smart campus by utilizing some theoretical concepts and academic approaches, such as interests mining, recommendation technology and educational guiding model. Based on the scheme, we design and implement an architecture to offer intelligent services. Our objectives are making campus a smarter and more friendly place to live.
 
 %needs and our solution
-In this work, we mainly make contributions on three aspects. 1) Introduce interests mining models based on the context awareness, locations, students profiles and relationships. Establish interests circles based on this.  2) Provide a platform on which users can share knowledge, post ideas, ask or answer questions. Managers can collect and analyze students posts, aimed at analyzing "campus emotion" and provide appropriate educational guiding. 3) Devote to optimizing the campus resources, such as used books, surplus products etc. We design and developed a system called OnCampus based on mobile devices to support smart campus.
+In this work, we mainly make contributions in the following three aspects. 1) We introduce interests mining models based on the context awareness, locations, students profiles and relationships and establish interests circles based on this. 2) We present a platform on which users can share knowledge, post ideas, ask or answer questions. With this platform, managers can collect and analyze students' posts. By exploiting such information, it will be possible to analyze "campus emotion" and provide appropriate educational guiding. 3) We provide a solution for optimizing the usage of campus resources, such as used books, surplus products etc. We design and develop a system called OnCampus based on mobile devices to enable smart campus.
 
-The rest of this paper will be developed as follows. Section II introduces the state of art of the research of smart campus, as well as researches about interests mining. Section III presents our motivation and requirements for smart campus, including personalized service, scientific guidance and resources optimizing. And the following section IV has discussed the scheme we proposed towards constructing smart campus. With the knowledge of our scheme, in section V we design and implement a prototype for both client side on mobile phones and server side on PCs. Finally, section VI gives a conclusion about our work.
+The rest of this paper is organized as follows. Section II introduces the state of art of the research of smart campus, as well as researches about interests mining. Section III presents our motivation and requirements for smart campus, including personalized service, scientific guidance and resources usage optimizing. The following section (IV) has discussed the scheme we proposed towards constructing smart campus. With the knowledge of our scheme, in section V we design and implement a prototype for both client side on mobile phones and server side on PCs. Finally, section VI gives a conclusion about our work.
 
 \section{Related Work}
 
@@ -99,7 +99,7 @@ Smart campus are often approached from educational and learning perspective. In 
 Many researchers also devote to building smart campus based on data analysis. Adamko et al.~\cite{adamko2014system} aim to establish an intelligent campus which is based on gathering data from the crowd, analyze them and provide feedback as value-added services that make users glad and in the meantime contributory as they would like to return. Boran et al.~\cite{boran2011smart} describe the implementation of a Smart Campus application prototype that integrates heterogeneous data using semantic technologies. Some work also contributes to smart campus in social networking aspect. Yu et al.~\cite{yu2011towards} develop a system architecture based on the service-oriented specification to support social interactions in campus-wide environments. Xiang et al.~\cite{xiang2015smart} discuss the features and functions of a social network platform, WeChat, and put forward a smart university campus information dissemination framework based on the WeChat platform.
 
 %energy ef?ciency point of view
-Many of the initiatives~\footnote{http://greensmartcampus.eu/} \footnote{http://smartgridcenter.tamu.edu/seci/} think primarily of smart campus from an energy high-efficiency point of view. Zhao et al.~\cite{zhao2012mobimsg} propose a resource-efficient location-based mobile instant messaging system which is used in smart campus situation. Yim et al.~\cite{yim2014design} design and implement a VOD(video on demand) system, which is a smart campus guide android App that recognizes the structure in which a user is interested and displays useful information about the structure.
+Many of the initiatives~\footnote{http://greensmartcampus.eu/} \footnote{http://smartgridcenter.tamu.edu/seci/} think primarily of smart campus from an energy high-efficiency point of view. Zhao et al.~\cite{zhao2012mobimsg} propose a resource-efficient location-based mobile instant messaging system which is used in smart campus situation. Yim et al.~\cite{yim2014design} design and implement a VOD (video on demand) system, which is a smart campus guide android App that recognizes the structure in which a user is interested and displays useful information about the structure.
 
 Although practical in each individual area, these projects work in very limited ways, either drawing a map of the campus or presenting e-books. None of them present the colorful campus life as a versatile system to assist college students, offering efficiency and convenience.
 
@@ -211,12 +211,12 @@ Besides the substantial services and efficiency, furthermore, it has great poten
 
 \section{Conclusion}
 
-In this paper, we realize the inevitable trend of smart campus. A feasible scheme composed of interests mining, scientific guidance and resources optimizing is proposed towards the construction of smart campus after analyzing the requirements to be satisfied. We summarize the state of art on smart campus. Beyond paralleled development on theory or entity, we design and implement a prototype proven to be efficient based on the proposed scheme.
+In this paper, we observed the inevitable trend of smart campus, in the context of smart city. A feasible scheme involving interests mining, scientific guidance and resources usage optimization has been proposed towards the construction of smart campus. We designed and implemented a prototype system based on the proposed scheme, which has been proven to be effective and efficient.
 
 
-
-% use section* for acknowledgement
-\section*{Acknowledgment}
+%
+%% use section* for acknowledgement
+%\section*{Acknowledgment}
 
 
 \balance
